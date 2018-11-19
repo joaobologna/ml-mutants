@@ -23,7 +23,7 @@ public class MutantService {
                 final int column = j;
                 final char value = array[i][j];
 
-                validators.forEach(impl -> impl.addEntry(row, column, value));
+                validators.forEach(impl -> impl.addEntry(order, row, column, value));
             }
         }
 
