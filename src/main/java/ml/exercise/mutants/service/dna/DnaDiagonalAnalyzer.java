@@ -20,7 +20,7 @@ public class DnaDiagonalAnalyzer extends DnaAnalyzer {
         int index = column - row;
 
         if (index < 0) {
-            index = order - 1 + (index * -1);
+            index = order - 1 + Math.abs(index);
         }
 
         if (diagonals.size() - 1 < index) {
