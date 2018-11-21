@@ -1,6 +1,6 @@
-package ml.exercise.mutants.service;
+package ml.exercise.mutants.service.mutant;
 
-import ml.exercise.mutants.service.analiser.MutantAnaliser;
+import ml.exercise.mutants.service.dna.DnaAnalyzer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class MutantService {
     private int maxSequenceRequired;
 
     @Autowired
-    private List<MutantAnaliser> validators;
+    private List<DnaAnalyzer> analyzers;
 
     public boolean isMutant(char[][] array, int order) {
         for (int i = 0; i < order; i++) {
@@ -23,10 +23,10 @@ public class MutantService {
                 final int column = j;
                 final char value = array[i][j];
 
-                validators.forEach(impl -> impl.addEntry(order, row, column, value));
+                analyzers.forEach(impl -> impl.addEntry(order, row, column, value));
             }
         }
 
-        return validators.stream().mapToInt(MutantAnaliser::getSequences).sum() >= maxSequenceRequired;
+        return analyzers.stream().mapToInt(DnaAnalyzer::getSequences).sum() >= maxSequenceRequired;
     }
 }

@@ -1,8 +1,8 @@
-package ml.exercise.mutants.service.analiser;
+package ml.exercise.mutants.service.dna;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public abstract class MutantAnaliser {
+public abstract class DnaAnalyzer {
 
     @Value("${valid.dna.sequence}")
     private int validDnaSequence;

@@ -1,4 +1,4 @@
-package ml.exercise.mutants.service.analiser.util;
+package ml.exercise.mutants.service.dna.util;
 
 public class Element {
     private char value;

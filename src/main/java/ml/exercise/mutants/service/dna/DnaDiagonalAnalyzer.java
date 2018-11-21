@@ -1,6 +1,6 @@
-package ml.exercise.mutants.service.analiser;
+package ml.exercise.mutants.service.dna;
 
-import ml.exercise.mutants.service.analiser.util.Element;
+import ml.exercise.mutants.service.dna.util.Element;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -11,20 +11,26 @@ import java.util.List;
 
 @Component
 @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class MutantRowAnaliser extends MutantAnaliser {
+public class DnaDiagonalAnalyzer extends DnaAnalyzer {
 
-    private List<Element> rows = new ArrayList<>();
+    private List<Element> diagonals = new ArrayList<>();
 
     @Override
     protected int analyseEntry(int order, int row, int column, char value) {
+        int index = column - row;
 
-        if (rows.size() - 1 < row) {
-            rows.add(new Element(value));
+        if (index < 0) {
+            index = order - 1 + (index * -1);
+        }
+
+        if (diagonals.size() - 1 < index) {
+            diagonals.add(new Element(value));
         } else {
-            Element lineElement = rows.get(row);
-            return lineElement.verify(value);
+            Element diagonalElement = diagonals.get(index);
+            return diagonalElement.verify(value);
         }
 
         return 0;
     }
+
 }

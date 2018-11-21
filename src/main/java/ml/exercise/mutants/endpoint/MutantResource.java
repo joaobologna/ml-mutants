@@ -1,6 +1,6 @@
 package ml.exercise.mutants.endpoint;
 
-import ml.exercise.mutants.service.MutantService;
+import ml.exercise.mutants.service.mutant.MutantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
