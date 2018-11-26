@@ -1,6 +1,6 @@
-package ml.exercise.mutants.service.dna;
+package ml.exercise.mutants.service.dna.analyzer;
 
-import ml.exercise.mutants.service.dna.util.Element;
+import ml.exercise.mutants.service.dna.model.Element;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;

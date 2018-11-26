@@ -1,18 +1,18 @@
-package ml.exercise.mutants.service.dna;
+package ml.exercise.mutants.service.dna.analyzer;
 
 import org.springframework.beans.factory.annotation.Value;
 
 public abstract class DnaAnalyzer {
 
-    @Value("${valid.dna.sequence}")
-    private int validDnaSequence;
+    @Value("${dna.required.sequence}")
+    private int requiredDnaSequence;
 
     private int sequences = 0;
 
     public void addEntry(int order, int row, int column, char value) {
         int dnaSequence = analyseEntry(order, row, column, value);
 
-        if (dnaSequence == validDnaSequence) {
+        if (dnaSequence == requiredDnaSequence) {
             sequences++;
         }
     }
