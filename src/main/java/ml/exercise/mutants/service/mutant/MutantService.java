@@ -1,8 +1,8 @@
 package ml.exercise.mutants.service.mutant;
 
-import ml.exercise.mutants.repository.DnaEntry;
 import ml.exercise.mutants.repository.DnaRepository;
 import ml.exercise.mutants.service.dna.analyzer.DnaAnalyzer;
+import ml.exercise.mutants.service.mutant.model.MutantStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -35,7 +35,10 @@ public class MutantService {
         return analyzers.stream().mapToInt(DnaAnalyzer::getSequences).sum() >= requiredDnaSequences;
     }
 
-    public List<DnaEntry> stats() {
-        return dnaRepository.findAll();
+    public MutantStats stats() {
+        Long humans = dnaRepository.countByMutant(false);
+        Long mutants = dnaRepository.countByMutant(true);
+
+        return new MutantStats(humans, mutants, 1f * mutants / humans);
     }
 }

@@ -25,13 +25,13 @@ public class MutantInterceptor implements MethodInterceptor {
     @Override
     public Boolean invoke(MethodInvocation invocation) throws Throwable {
         String dna = extractDna(invocation.getArguments());
-        List<DnaEntry> dnas = dnaRepository.findByDna(dna);
+        List<DnaEntry> dnaList = dnaRepository.findByDna(dna);
 
-        if (dnas.isEmpty()) {
+        if (dnaList.isEmpty()) {
             return persist(dna, (Boolean) invocation.proceed());
         }
 
-        return dnas.stream().findFirst().map(DnaEntry::isMutant).orElseThrow(IllegalArgumentException::new);
+        return dnaList.stream().findFirst().map(DnaEntry::isMutant).orElseThrow(IllegalArgumentException::new);
     }
 
     private Boolean persist(String dna, Boolean result) {

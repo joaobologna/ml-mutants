@@ -11,4 +11,6 @@ public interface DnaRepository extends JpaRepository<DnaEntry, Long> {
 
      List<DnaEntry> findByDna(@Param("dna") String dna);
 
+     Long countByMutant(@Param("mutant") boolean isMutant);
+
 }
