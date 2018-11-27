@@ -1,6 +1,7 @@
 package ml.exercise.mutants.endpoint;
 
 import ml.exercise.mutants.service.mutant.MutantService;
+import ml.exercise.mutants.service.mutant.model.MutantStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class MutantResource {
     }
 
     @GetMapping(path = "/stats")
-    public ResponseEntity stats() {
+    public ResponseEntity<MutantStats> stats() {
         return ResponseEntity.ok(mutantService.stats());
     }
 }
