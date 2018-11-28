@@ -1,4 +1,4 @@
-package ml.exercise.mutants.repository;
+package ml.exercise.mutants.service.dna.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;

@@ -1,4 +1,4 @@
-package ml.exercise.mutants.repository;
+package ml.exercise.mutants.service.dna.repository;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

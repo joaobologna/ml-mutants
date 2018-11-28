@@ -1,7 +1,7 @@
 package ml.exercise.mutants.service.mutant.interceptor;
 
-import ml.exercise.mutants.repository.DnaEntry;
-import ml.exercise.mutants.repository.DnaRepository;
+import ml.exercise.mutants.service.dna.repository.DnaEntry;
+import ml.exercise.mutants.service.dna.repository.DnaRepository;
 import org.aopalliance.intercept.MethodInvocation;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package ml.exercise.mutants.service;
 
-import ml.exercise.mutants.repository.DnaRepository;
+import ml.exercise.mutants.service.dna.repository.DnaRepository;
 import ml.exercise.mutants.service.dna.analyzer.DnaAnalyzer;
 import ml.exercise.mutants.service.dna.analyzer.DnaColumnAnalyzer;
 import ml.exercise.mutants.service.dna.analyzer.DnaDiagonalAnalyzer;
